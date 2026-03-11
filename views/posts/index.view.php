@@ -4,20 +4,14 @@
 
 <form>
     <input type="text" name="search" placeholder="Meklē" value="<?= $_GET['search'] ?? '' ?>">
-    <button>Filtrēt</button>
+    <button>Meklēt</button>
 </form>
 
 <ul>
-    <?php foreach ($fruits as $fruit) : ?>
+    <?php foreach ($fruits as $fruit) { ?>
         <li>
-            <?= htmlspecialchars($fruit['name']) ?> 
-            <a href="/show?id=<?= $fruit['id'] ?>">Skatīt</a>
-            <a href="/edit?id=<?= $fruit['id'] ?>">Rediģēt</a>
-            <form method="POST" action="/delete" style="display:inline;">
-                <input type="hidden" name="id" value="<?= $fruit['id'] ?>">
-                <button>Dzēst</button>
-            </form>
+            <a href="/show?id=<?= $fruit['id'] ?>"><?= htmlspecialchars($fruit['name']) ?> </a>
         </li>
-    <?php endforeach; ?>
+    <?php } ?>
 </ul>
 <?php require "views/components/footer.php"; ?>

@@ -4,11 +4,11 @@ if(!isset($_GET["id"]) && $_GET["id"] != ""){
 redirectIfNotFound();
 
 }
-$sql = "SELECT * FROM posts WHERE id = :id";
+$sql = "SELECT * FROM fruits WHERE id = :id";
 $params = ["id" =>  $_GET["id"]];
-$post = $db->query($sql, $params)->fetch();
+$fruit = $db->query($sql, $params)->fetch();
 
-if(!$post){
+if(!$fruit){
     redirectIfNotFound();
 }
 require "views/posts/show.view.php";
